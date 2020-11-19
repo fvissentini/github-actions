@@ -11,19 +11,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out latest version
       - uses: actions/checkout@v2
+
+      - name: configure node v12
       - uses: actions/setup-node@v2-beta
         with:
           node-version: 12
+
+      - name: build run dependencies
       - run: yarn install
+
+      - name: run tests
       - run: yarn test
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: 12
+      - name: deploy application
       - run: yarn deploy
