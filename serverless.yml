@@ -26,6 +26,7 @@ package:
   exclude:
     - .idea/**
     - node_modules/**
+    - .github/**
 
 functions:
   status:
